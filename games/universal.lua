@@ -14,7 +14,7 @@ end
 local function downloadFile(path, func)
 	if not isfile(path) then
 		local suc, res = pcall(function()
-			return game:HttpGet('https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/'..readfile('newvape/profiles/commit.txt')..'/'..select(1, path:gsub('newvape/', '')), true)
+			return game:HttpGet('https://raw.githubusercontent.com/sus237/SigmaClientForRoblox/'..readfile('newvape/profiles/commit.txt')..'/'..select(1, path:gsub('newvape/', '')), true)
 		end)
 		if not suc or res == '404: Not Found' then
 			error(res)
@@ -7921,4 +7921,67 @@ run(function()
 	})
 	
 end)
-	
+
+run(function()
+    local watermarkGui
+
+    Watermark = vape.Categories.Render:CreateModule({
+        Name = 'Watermark',
+        Function = function(callback)
+            if callback then
+                local ScreenGui = Instance.new("ScreenGui")
+                ScreenGui.Name = "SigmaWatermark"
+                ScreenGui.ResetOnSpawn = false
+                ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+                ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+                local Frame = Instance.new("Frame")
+                Frame.Parent = ScreenGui
+                Frame.BackgroundColor3 = Color3.new(1, 1, 1)
+                Frame.BackgroundTransparency = 1
+                Frame.BorderColor3 = Color3.new(0, 0, 0)
+                Frame.BorderSizePixel = 0
+                Frame.Size = UDim2.new(0, 219, 0, 92)
+
+                local TextLabel = Instance.new("TextLabel")
+                TextLabel.Parent = Frame
+                TextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+                TextLabel.BackgroundTransparency = 1
+                TextLabel.BorderColor3 = Color3.new(0, 0, 0)
+                TextLabel.BorderSizePixel = 0
+                TextLabel.Position = UDim2.new(-0.0547945201, 0, 0, 0)
+                TextLabel.Size = UDim2.new(0, 206, 0, 82)
+                TextLabel.Font = Enum.Font.SourceSansLight
+                TextLabel.Text = "Sigma"
+                TextLabel.TextColor3 = Color3.new(1, 1, 1)
+                TextLabel.TextSize = 62
+                TextLabel.TextStrokeColor3 = Color3.new(1, 1, 1)
+                TextLabel.TextWrapped = true
+
+                local TextLabel_2 = Instance.new("TextLabel")
+                TextLabel_2.Parent = Frame
+                TextLabel_2.BackgroundColor3 = Color3.new(1, 1, 1)
+                TextLabel_2.BackgroundTransparency = 1
+                TextLabel_2.BorderColor3 = Color3.new(0, 0, 0)
+                TextLabel_2.BorderSizePixel = 0
+                TextLabel_2.Position = UDim2.new(0.100456618, 0, 0.804347813, 0)
+                TextLabel_2.Size = UDim2.new(0, 46, 0, 8)
+                TextLabel_2.Font = Enum.Font.Unknown
+                TextLabel_2.Text = "Jello"
+                TextLabel_2.TextColor3 = Color3.new(1, 1, 1)
+                TextLabel_2.TextSize = 19
+                TextLabel_2.TextStrokeColor3 = Color3.new(1, 1, 1)
+                TextLabel_2.TextWrapped = true
+
+                watermarkGui = ScreenGui
+            else
+                if watermarkGui and watermarkGui.Parent then
+                    watermarkGui:Destroy()
+                    watermarkGui = nil
+                end
+            end
+        end,
+        Default = false,
+        Tooltip = "Self Explanatory"
+    })
+end)																																																																																																																																																																																																																		
